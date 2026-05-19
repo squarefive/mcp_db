@@ -38,7 +38,14 @@ The future MCP server should support:
 
 The project follows four local rules adapted from `multica-ai/andrej-karpathy-skills`.
 
-- [项目规则](docs/project-rules.md)
+- [项目规则](docs/ai-development-paradigms/project-rules.md)
+
+## AI Development Paradigms Index
+
+All documents that define conventions for AI-assisted development paradigms must be stored under `docs/ai-development-paradigms/`.
+
+- [核心开发范式 (Core Development Paradigms)](docs/ai-development-paradigms/core-development-paradigms.md)
+- [项目规则](docs/ai-development-paradigms/project-rules.md)
 
 ## Current Status
 
