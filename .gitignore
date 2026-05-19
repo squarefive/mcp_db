@@ -1,0 +1,21 @@
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build and packaging output
+build/
+dist/
+*.egg-info/
+
+# Local environment and editor files
+.env
+.env.*
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
