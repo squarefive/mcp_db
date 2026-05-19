@@ -47,6 +47,10 @@ All documents that define conventions for AI-assisted development paradigms must
 - [核心开发范式 (Core Development Paradigms)](docs/ai-development-paradigms/core-development-paradigms.md)
 - [项目规则](docs/ai-development-paradigms/project-rules.md)
 
+## Implementation Plans
+
+- [HarmonyOS SQLite MCP 工具实施方案](docs/mcp-harmony-sqlite-plan.md)
+
 ## Current Status
 
 Initialized with project guidance only. No implementation files have been created yet.
