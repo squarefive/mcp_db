@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This project implements an MCP tool for pulling database files from HarmonyOS devices and analyzing the data according to user-supplied conditions.
+This project implements MCP tools for pulling SQLite database snapshots from HarmonyOS devices and querying local snapshots according to user-supplied conditions.
 
-The project is currently in initialization only. Do not implement runtime code, command wrappers, database analysis logic, or tests until the user explicitly asks for implementation.
+The first implementation is in place. Future behavior changes must follow the documentation-first design rule and keep code aligned with the module design document.
 
 ## Preferred Implementation Route
 
@@ -57,12 +57,6 @@ This rule does not apply to:
 - Fixes that only bring implementation back into alignment with an already accurate design document.
 
 When the design and code disagree, treat the module design document as the source of intended behavior. Either update and commit the design first, or explicitly state that the code fix is restoring conformance to the existing design.
-
-## Project Rules Index
-
-The project follows four local rules adapted from `multica-ai/andrej-karpathy-skills`.
-
-- [项目规则](docs/ai-development-paradigms/project-rules.md)
 
 ## AI Development Paradigms Index
 
