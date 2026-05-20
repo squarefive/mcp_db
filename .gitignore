@@ -20,3 +20,4 @@ dist/
 tmp/
 temp/
 .inspector-runtime/
+artifacts/

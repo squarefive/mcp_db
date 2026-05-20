@@ -48,7 +48,7 @@
   "device_id": "3QC0124905000019",
   "bundle_name": "com.huawei.securitytool",
   "db_name": "security_tool.db",
-  "db_path": null
+  "db_path": ""
 }
 ```
 
@@ -58,6 +58,8 @@
 - `bundle_name`：应用包名。仅当 `db_path` 为空时使用。
 - `db_name`：数据库文件名。仅当 `db_path` 为空时使用。
 - `db_path`：设备上的数据库完整路径。传入后优先使用，不再拼接默认路径。
+
+面向 MCP Inspector 和 Agent 的工具入口统一使用普通字符串参数。可选文本参数留空字符串 `""` 表示未传；服务端会先执行 `strip()`，再把空字符串归一化为内部的 `None`。
 
 路径规则：
 
@@ -100,14 +102,14 @@ else:
 ```json
 {
   "snapshot_id": "20260519-173000-security_tool",
-  "sql": null
+  "sql": ""
 }
 ```
 
 字段含义：
 
 - `snapshot_id`：`pull_harmony_sqlite_db` 返回的本地快照 ID。
-- `sql`：可选。为空时返回表结构；有值时执行只读 SQL。
+- `sql`：可选。为空字符串时返回表结构；有值时执行只读 SQL。
 
 业务逻辑：
 
@@ -253,7 +255,7 @@ def run_hdc(args):
 
 ### 步骤 6：实现 schema 查询
 
-输入：`snapshot_id`、`sql=None`。
+输入：`snapshot_id`、`sql=""`。
 
 输出：表名和列信息。
 

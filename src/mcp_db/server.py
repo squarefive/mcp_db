@@ -11,12 +11,17 @@ from mcp_db.sqlite_query import query_sqlite_db_snapshot as query_snapshot
 mcp = FastMCP("harmony-sqlite-db")
 
 
+def optional_text(value: str) -> str | None:
+    stripped = value.strip()
+    return stripped or None
+
+
 @mcp.tool()
 def pull_harmony_sqlite_db(
     device_id: str,
-    bundle_name: str | None = None,
-    db_name: str | None = None,
-    db_path: str | None = None,
+    bundle_name: str = "",
+    db_name: str = "",
+    db_path: str = "",
 ) -> dict[str, Any]:
     """
     Pull a SQLite database snapshot from a HarmonyOS device.
@@ -37,17 +42,17 @@ def pull_harmony_sqlite_db(
     """
     try:
         return pull_snapshot(
-            device_id=device_id,
-            bundle_name=bundle_name,
-            db_name=db_name,
-            db_path=db_path,
+            device_id=device_id.strip(),
+            bundle_name=optional_text(bundle_name),
+            db_name=optional_text(db_name),
+            db_path=optional_text(db_path),
         )
     except Exception as exc:
         return {"status": "error", "message": str(exc)}
 
 
 @mcp.tool()
-def query_sqlite_db_snapshot(snapshot_id: str, sql: str | None = None) -> dict[str, Any]:
+def query_sqlite_db_snapshot(snapshot_id: str, sql: str = "") -> dict[str, Any]:
     """
     Inspect or query a local SQLite snapshot created by pull_harmony_sqlite_db.
 
@@ -66,7 +71,7 @@ def query_sqlite_db_snapshot(snapshot_id: str, sql: str | None = None) -> dict[s
     3. Call this tool again with sql to get query results.
     """
     try:
-        return query_snapshot(snapshot_id=snapshot_id, sql=sql)
+        return query_snapshot(snapshot_id=snapshot_id.strip(), sql=optional_text(sql))
     except Exception as exc:
         return {"status": "error", "snapshot_id": snapshot_id, "message": str(exc)}
 
